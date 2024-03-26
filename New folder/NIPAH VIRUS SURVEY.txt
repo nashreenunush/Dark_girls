@@ -1,0 +1,54 @@
+INPUT:
+
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Sample survey results (replace this with your actual data)
+survey_data = {
+    'Region': ['Region A', 'Region B', 'Region C', 'Region D'],
+    'Positive Cases': [120, 90, 150, 80],
+    'Negative Cases': [300, 250, 200, 350]
+}
+
+# Convert data to DataFrame
+df = pd.DataFrame(survey_data)
+
+# Calculate total cases
+df['Total Cases'] = df['Positive Cases'] + df['Negative Cases']
+
+# Plotting
+plt.figure(figsize=(10, 6))
+
+# Bar plot for positive cases
+plt.bar(df['Region'], df['Positive Cases'], color='orange', label='Positive Cases')
+
+# Bar plot for negative cases
+plt.bar(df['Region'], df['Negative Cases'], bottom=df['Positive Cases'], color='lightblue', label='Negative Cases')
+
+# Add total cases as text on top of each bar
+for i, value in enumerate(df['Total Cases']):
+    plt.text(i, value + 5, str(value), ha='center')
+
+# Customize the plot
+plt.xlabel('Regions')
+plt.ylabel('Number of Cases')
+plt.title('Malaria Survey Results by Region')
+plt.legend()
+
+# Rotate x-axis labels for better readability
+
+plt.xticks(rotation=45, ha='right')
+
+# Show plot
+plt.tight_layout()
+plt.show()
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+HTML OUTPUT:
+
+import matplotlib.pyplot as plt import pandas as pd # Sample survey results (replace this with your actual data) survey_data = { 'Region': ['Region A', 'Region B', 'Region C', 'Region D'], 'Positive Cases': [120, 90, 150, 80], 'Negative Cases': [300, 250, 200, 350] } # Convert data to DataFrame df = pd.DataFrame(survey_data) # Calculate total cases df['Total Cases'] = df['Positive Cases'] + df['Negative Cases'] # Plotting plt.figure(figsize=(10, 6)) # Bar plot for positive cases plt.bar(df['Region'], df['Positive Cases'], color='orange', label='Positive Cases') # Bar plot for negative cases plt.bar(df['Region'], df['Negative Cases'], bottom=df['Positive Cases'], color='lightblue', label='Negative Cases') # Add total cases as text on top of each bar for i, value in enumerate(df['Total Cases']): plt.text(i, value + 5, str(value), ha='center') # Customize the plot plt.xlabel('Regions') plt.ylabel('Number of Cases') plt.title('Malaria Survey Results by Region') plt.legend() # Rotate x-axis labels for better readability plt.xticks(rotation=45, ha='right') # Show plot plt.tight_layout() plt.show()
+
+
+
